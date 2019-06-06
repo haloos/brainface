@@ -1,7 +1,6 @@
 import React from 'react'; 
-import './ImageLinkForm.css';
 
-const ImageLinkForm = () => {
+const Rank = () => {
  return (
    <div> 
         <p className='f3'> 
@@ -20,4 +19,4 @@ const ImageLinkForm = () => {
  );
 }; 
 
-export default ImageLinkForm; 
+export default Rank; 
