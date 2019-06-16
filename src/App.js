@@ -20,7 +20,7 @@ const particlesOptions = {
 
 class App extends Component { 
   constructor() {
-    super() ;
+    super();
     this.state ={
       input: '', 
     }
@@ -43,7 +43,7 @@ class App extends Component {
         <Rank/>
         <ImageLinkForm 
         onInputChange={this.onInputChange} 
-        onButtonSubmit={thi.sonButtonSubmit}/> 
+        onButtonSubmit={this.onButtonSubmit}/> 
         {/*<FaceRecognition/>*/}
     </div>
   );
