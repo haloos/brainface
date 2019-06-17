@@ -4,7 +4,11 @@ import Logo from './components/Logo/Logo';
 import ImageLinkForm from './components/ImageLinkForm/ImageLinkForm'; 
 import Rank from './components/Rank/Rank'; 
 import Particles from 'react-particles-js';
-import './App.css';
+import './App.css'; 
+
+const app = new Clarifai.App({
+  apiKey:'573626925c2e4086992618c56bc6d703'
+});
 
 const particlesOptions = {
   particles: {
@@ -21,7 +25,7 @@ const particlesOptions = {
 class App extends Component { 
   constructor() {
     super();
-    this.state ={
+    this.state = {
       input: '', 
     }
   } 
@@ -29,13 +33,13 @@ class App extends Component {
     console.log(event.target.value);
   } 
 
-  onButtonSubmit = () => {
+  onButtonSubmit = () => { 
    console.log('click'); 
   }
   render() {
     return ( 
       <div className="App">
-        <Particles  className='particles'
+        <Particles  className='particles' 
           parms={particlesOptions}
        />
         <Navigation/> 
