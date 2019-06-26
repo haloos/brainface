@@ -32,7 +32,7 @@ class App extends Component{
       input: '',
       imageUrl:'', 
       box: {}, 
-      route: 'sigin'
+      route: 'signin'
     }
   } 
   calculateFaceLocation = (data) => {
@@ -75,7 +75,7 @@ class App extends Component{
       />
       <Navigation/> 
       { this.state.route === 'signin' 
-        ? <Signin/> 
+        ? <Signin onRouteChange={this.onRouteChange}/> 
         : <div> 
           <Logo/> 
           <Rank/>
