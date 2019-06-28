@@ -1,7 +1,8 @@
 import React, { Component }  from 'react'; 
 import Navigation from './components/Navigation/Navigation'; 
 import FaceRecognition from './components/FaceRecognition/FaceRecognition'; 
-import Signin from './components/Signin/Signin'; 
+import Signin from './components/Signin/Signin';   
+import Register from './components/Register/Register'; 
 import Clarifai  from 'clarifai';
 import Logo from './components/Logo/Logo'; 
 import ImageLinkForm from './components/ImageLinkForm/ImageLinkForm'; 
@@ -77,18 +78,24 @@ class App extends Component{
       params={particlesOptions}
       />
       <Navigation onRouteChange={this.onRouteChange}/> 
-      { this.state.route === 'signin' 
-        ? <Signin onRouteChange={this.onRouteChange}/> 
-        : <div> 
-          <Logo/> 
-          <Rank/>
-          <ImageLinkForm 
-          onInputChange={this.onInputChange} 
-          onButtonSubmit={this.onButtonSubmit}/> 
-          {<FaceRecognition box={this.state.box} imageUrl={this.state.imageUrl}/>}
-        </div> 
+      { this.state.route === 'home' 
+        ?  <div> 
+        <Logo/> 
+        <Rank/>
+        <ImageLinkForm 
+        onInputChange={this.onInputChange} 
+        onButtonSubmit={this.onButtonSubmit}/> 
+        {<FaceRecognition box={this.state.box} imageUrl={this.state.imageUrl}/>}
+      </div> 
+       : ( 
+          this.state.route === 'sigin' 
+         ? <Signin onRouteChange={this.onRouteChange}/> 
+         : <Register onRouteChange={this.onRouteChange}/> 
+      )
+        
+         
       }
-      </div>
+      </div> 
 
     )
   }
