@@ -34,7 +34,7 @@ class App extends Component{
       imageUrl:'', 
       box: {}, 
       route: 'signin', 
-      isSignedIn: 
+      isSignedIn: false
     }
   } 
   calculateFaceLocation = (data) => {
@@ -77,24 +77,25 @@ class App extends Component{
     this.setState({route: 'route'});
   }
 
-  render() {
+  render() { 
+   const { isSignedIn, imageUrl, route, box } = this.state;
     return (
       <div className="App"> 
       <Particles 
       params={particlesOptions}
       />
-      <Navigation onRouteChange={this.onRouteChange}/> 
-      { this.state.route === 'home' 
+      <Navigation isSignedIn={isSignedIn}onRouteChange={this.onRouteChange}/> 
+      { route === 'home' 
         ?  <div> 
         <Logo/> 
         <Rank/>
         <ImageLinkForm 
         onInputChange={this.onInputChange} 
         onButtonSubmit={this.onButtonSubmit}/> 
-        {<FaceRecognition box={this.state.box} imageUrl={this.state.imageUrl}/>}
+        {<FaceRecognition box={box} imageUrl={imageUrl}/>}
       </div> 
        : ( 
-          this.state.route === 'sigin' 
+          route === 'sigin' 
          ? <Signin onRouteChange={this.onRouteChange}/> 
          : <Register onRouteChange={this.onRouteChange}/> 
       )
